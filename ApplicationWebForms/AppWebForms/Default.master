@@ -1,0 +1,54 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Default.master.cs" Inherits="ApplicationWebForms.AppWebForms.Default" %>
+
+<!DOCTYPE html>
+<head>
+    <title id="idTitle" runat="server" style="font-family:sans-serif">
+        LIBRERIA FINANZAUTO
+    </title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server" style="font-family:sans-serif">
+        <div style="text-align: center; padding-top: 15px">
+            <asp:Label ID="lblStart" runat="server" Text="LIBRERIA FINANZAUTO" style="font-weight: 400; font-size: x-large; font-family: fantasy;">
+            </asp:Label>
+        </div>
+        <div style="text-align: center; padding-top: 15px">
+            <asp:Label ID="lblTitle" runat="server" Text="INICIO" style="font-weight: 400; font-size: x-large; font-family: fantasy;">
+            </asp:Label>            
+        </div>
+        <table style="margin: auto; padding-top: 15px">
+            <tr>
+                <td>
+                    <asp:Button ID="btnUsers" runat="server" Text="USUARIOS"
+                        OnClick="BtnUser_click"/>
+                </td>
+                <td>
+                    <asp:Button ID="btnCategory" runat="server" Text="CATEGORIAS"
+                        OnClick="BtnCategory_click"/>
+                </td>
+                <td>
+                    <asp:Button ID="btnAuthor" runat="server" Text="AUTORES"
+                        OnClick="BtnAuthor_click"/>
+                </td>
+                <td>
+                    <asp:Button ID="btnBook" runat="server" Text="LIBROS"
+                        OnClick="BtnBook_click"/>
+                </td>
+                <td>
+                    <asp:Button ID="btnEditorial" runat="server" Text="EDITORIALES"
+                        OnClick="BtnEditorial_click"/>
+                </td>
+                <td>
+                    <asp:Button ID="btnComment" runat="server" Text="COMENTARIOS"/>
+                </td>
+            </tr>
+        </table>        
+        <div class="panelCentral">
+            <asp:ContentPlaceHolder ID="contentMaster" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+

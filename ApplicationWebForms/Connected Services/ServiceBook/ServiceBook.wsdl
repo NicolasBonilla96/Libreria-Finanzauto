@@ -1,0 +1,1563 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:tns="http://nicolas_bonilla_finanzauto.net/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://nicolas_bonilla_finanzauto.net/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://nicolas_bonilla_finanzauto.net/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="Insert_Author">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authors" type="tns:Authors" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Authors">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="lastname" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Insert_AuthorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Insert_AuthorResult" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update_Author">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authors" type="tns:Authors" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update_AuthorResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Delete_Author">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Delete_AuthorResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_Author">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_AuthorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_AuthorResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Author_List">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_Author_ListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Author_ListResult" type="tns:ArrayOfAuthors" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAuthors">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Authors" nillable="true" type="tns:Authors" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Get_Authors_Filter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authors" type="tns:Authors" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Authors_FilterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Authors_FilterResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insert_Book">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="books" type="tns:Books" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Books">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="author_id" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="editorial_id" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="category_id" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="publication_year" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Insert_BookResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Insert_BookResult" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update_Book">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="books" type="tns:Books" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update_BookResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Delete_Book">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Delete_BookResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_Book">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_BookResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_BookResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Book_List">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_Book_ListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Book_ListResult" type="tns:ArrayOfBooks" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBooks">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Books" nillable="true" type="tns:Books" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Get_Book_Filter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="books" type="tns:Books" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Book_FilterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Book_FilterResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insert_Categories">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="categories" type="tns:Categories" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Categories">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Insert_CategoriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Insert_CategoriesResult" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update_Categories">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="categories" type="tns:Categories" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update_CategoriesResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Delete_Categories">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Delete_CategoriesResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_Categories">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_CategoriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_CategoriesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_CAtegories_List">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_CAtegories_ListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_CAtegories_ListResult" type="tns:ArrayOfCategories" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCategories">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Categories" nillable="true" type="tns:Categories" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Get_Categories_Filter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="categories" type="tns:Categories" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Categories_FilterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Categories_FilterResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insert_Comments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="comments" type="tns:Comments" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Comments">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="user_id" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="book_id" type="s1:guid" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Insert_CommentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Insert_CommentsResult" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update_Comments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="comments" type="tns:Comments" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update_CommentsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Delete_Comments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Delete_CommentsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_Comments">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_CommentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_CommentsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Comments_Filter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="comments" type="tns:Comments" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Comments_FilterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Comments_FilterResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insert_Editorials">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="editorials" type="tns:Editorials" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Editorials">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="location" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Insert_EditorialsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Insert_EditorialsResult" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update_Editorials">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="editorials" type="tns:Editorials" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update_EditorialsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Delete_Editorials">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Delete_EditorialsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_Editorials">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_EditorialsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_EditorialsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Editorials_List">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_Editorials_ListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Editorials_ListResult" type="tns:ArrayOfEditorials" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfEditorials">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Editorials" nillable="true" type="tns:Editorials" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Get_Editorials_Filter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="editorials" type="tns:Editorials" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Editorials_FilterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Editorials_FilterResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insert_User">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="users" type="tns:Users" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Users">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="id" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Insert_UserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Insert_UserResult" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update_User">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="users" type="tns:Users" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Update_UserResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Delete_User">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Delete_UserResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_Users">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_UsersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_UsersResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Users_List">
+        <s:complexType />
+      </s:element>
+      <s:element name="Get_Users_ListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Users_ListResult" type="tns:ArrayOfUsers" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfUsers">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Users" nillable="true" type="tns:Users" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Get_User_Filter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="users" type="tns:Users" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_User_FilterResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_User_FilterResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Insert_AuthorSoapIn">
+    <wsdl:part name="parameters" element="tns:Insert_Author" />
+  </wsdl:message>
+  <wsdl:message name="Insert_AuthorSoapOut">
+    <wsdl:part name="parameters" element="tns:Insert_AuthorResponse" />
+  </wsdl:message>
+  <wsdl:message name="Update_AuthorSoapIn">
+    <wsdl:part name="parameters" element="tns:Update_Author" />
+  </wsdl:message>
+  <wsdl:message name="Update_AuthorSoapOut">
+    <wsdl:part name="parameters" element="tns:Update_AuthorResponse" />
+  </wsdl:message>
+  <wsdl:message name="Delete_AuthorSoapIn">
+    <wsdl:part name="parameters" element="tns:Delete_Author" />
+  </wsdl:message>
+  <wsdl:message name="Delete_AuthorSoapOut">
+    <wsdl:part name="parameters" element="tns:Delete_AuthorResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_AuthorSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Author" />
+  </wsdl:message>
+  <wsdl:message name="Get_AuthorSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_AuthorResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Author_ListSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Author_List" />
+  </wsdl:message>
+  <wsdl:message name="Get_Author_ListSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Author_ListResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Authors_FilterSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Authors_Filter" />
+  </wsdl:message>
+  <wsdl:message name="Get_Authors_FilterSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Authors_FilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="Insert_BookSoapIn">
+    <wsdl:part name="parameters" element="tns:Insert_Book" />
+  </wsdl:message>
+  <wsdl:message name="Insert_BookSoapOut">
+    <wsdl:part name="parameters" element="tns:Insert_BookResponse" />
+  </wsdl:message>
+  <wsdl:message name="Update_BookSoapIn">
+    <wsdl:part name="parameters" element="tns:Update_Book" />
+  </wsdl:message>
+  <wsdl:message name="Update_BookSoapOut">
+    <wsdl:part name="parameters" element="tns:Update_BookResponse" />
+  </wsdl:message>
+  <wsdl:message name="Delete_BookSoapIn">
+    <wsdl:part name="parameters" element="tns:Delete_Book" />
+  </wsdl:message>
+  <wsdl:message name="Delete_BookSoapOut">
+    <wsdl:part name="parameters" element="tns:Delete_BookResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_BookSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Book" />
+  </wsdl:message>
+  <wsdl:message name="Get_BookSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_BookResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Book_ListSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Book_List" />
+  </wsdl:message>
+  <wsdl:message name="Get_Book_ListSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Book_ListResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Book_FilterSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Book_Filter" />
+  </wsdl:message>
+  <wsdl:message name="Get_Book_FilterSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Book_FilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="Insert_CategoriesSoapIn">
+    <wsdl:part name="parameters" element="tns:Insert_Categories" />
+  </wsdl:message>
+  <wsdl:message name="Insert_CategoriesSoapOut">
+    <wsdl:part name="parameters" element="tns:Insert_CategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="Update_CategoriesSoapIn">
+    <wsdl:part name="parameters" element="tns:Update_Categories" />
+  </wsdl:message>
+  <wsdl:message name="Update_CategoriesSoapOut">
+    <wsdl:part name="parameters" element="tns:Update_CategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="Delete_CategoriesSoapIn">
+    <wsdl:part name="parameters" element="tns:Delete_Categories" />
+  </wsdl:message>
+  <wsdl:message name="Delete_CategoriesSoapOut">
+    <wsdl:part name="parameters" element="tns:Delete_CategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_CategoriesSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Categories" />
+  </wsdl:message>
+  <wsdl:message name="Get_CategoriesSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_CategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_CAtegories_ListSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_CAtegories_List" />
+  </wsdl:message>
+  <wsdl:message name="Get_CAtegories_ListSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_CAtegories_ListResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Categories_FilterSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Categories_Filter" />
+  </wsdl:message>
+  <wsdl:message name="Get_Categories_FilterSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Categories_FilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="Insert_CommentsSoapIn">
+    <wsdl:part name="parameters" element="tns:Insert_Comments" />
+  </wsdl:message>
+  <wsdl:message name="Insert_CommentsSoapOut">
+    <wsdl:part name="parameters" element="tns:Insert_CommentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Update_CommentsSoapIn">
+    <wsdl:part name="parameters" element="tns:Update_Comments" />
+  </wsdl:message>
+  <wsdl:message name="Update_CommentsSoapOut">
+    <wsdl:part name="parameters" element="tns:Update_CommentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Delete_CommentsSoapIn">
+    <wsdl:part name="parameters" element="tns:Delete_Comments" />
+  </wsdl:message>
+  <wsdl:message name="Delete_CommentsSoapOut">
+    <wsdl:part name="parameters" element="tns:Delete_CommentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_CommentsSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Comments" />
+  </wsdl:message>
+  <wsdl:message name="Get_CommentsSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_CommentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Comments_FilterSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Comments_Filter" />
+  </wsdl:message>
+  <wsdl:message name="Get_Comments_FilterSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Comments_FilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="Insert_EditorialsSoapIn">
+    <wsdl:part name="parameters" element="tns:Insert_Editorials" />
+  </wsdl:message>
+  <wsdl:message name="Insert_EditorialsSoapOut">
+    <wsdl:part name="parameters" element="tns:Insert_EditorialsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Update_EditorialsSoapIn">
+    <wsdl:part name="parameters" element="tns:Update_Editorials" />
+  </wsdl:message>
+  <wsdl:message name="Update_EditorialsSoapOut">
+    <wsdl:part name="parameters" element="tns:Update_EditorialsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Delete_EditorialsSoapIn">
+    <wsdl:part name="parameters" element="tns:Delete_Editorials" />
+  </wsdl:message>
+  <wsdl:message name="Delete_EditorialsSoapOut">
+    <wsdl:part name="parameters" element="tns:Delete_EditorialsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_EditorialsSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Editorials" />
+  </wsdl:message>
+  <wsdl:message name="Get_EditorialsSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_EditorialsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Editorials_ListSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Editorials_List" />
+  </wsdl:message>
+  <wsdl:message name="Get_Editorials_ListSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Editorials_ListResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Editorials_FilterSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Editorials_Filter" />
+  </wsdl:message>
+  <wsdl:message name="Get_Editorials_FilterSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Editorials_FilterResponse" />
+  </wsdl:message>
+  <wsdl:message name="Insert_UserSoapIn">
+    <wsdl:part name="parameters" element="tns:Insert_User" />
+  </wsdl:message>
+  <wsdl:message name="Insert_UserSoapOut">
+    <wsdl:part name="parameters" element="tns:Insert_UserResponse" />
+  </wsdl:message>
+  <wsdl:message name="Update_UserSoapIn">
+    <wsdl:part name="parameters" element="tns:Update_User" />
+  </wsdl:message>
+  <wsdl:message name="Update_UserSoapOut">
+    <wsdl:part name="parameters" element="tns:Update_UserResponse" />
+  </wsdl:message>
+  <wsdl:message name="Delete_UserSoapIn">
+    <wsdl:part name="parameters" element="tns:Delete_User" />
+  </wsdl:message>
+  <wsdl:message name="Delete_UserSoapOut">
+    <wsdl:part name="parameters" element="tns:Delete_UserResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_UsersSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Users" />
+  </wsdl:message>
+  <wsdl:message name="Get_UsersSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_UsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Users_ListSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Users_List" />
+  </wsdl:message>
+  <wsdl:message name="Get_Users_ListSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Users_ListResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_User_FilterSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_User_Filter" />
+  </wsdl:message>
+  <wsdl:message name="Get_User_FilterSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_User_FilterResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceBookSoap">
+    <wsdl:operation name="Insert_Author">
+      <wsdl:input message="tns:Insert_AuthorSoapIn" />
+      <wsdl:output message="tns:Insert_AuthorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update_Author">
+      <wsdl:input message="tns:Update_AuthorSoapIn" />
+      <wsdl:output message="tns:Update_AuthorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete_Author">
+      <wsdl:input message="tns:Delete_AuthorSoapIn" />
+      <wsdl:output message="tns:Delete_AuthorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Author">
+      <wsdl:input message="tns:Get_AuthorSoapIn" />
+      <wsdl:output message="tns:Get_AuthorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Author_List">
+      <wsdl:input message="tns:Get_Author_ListSoapIn" />
+      <wsdl:output message="tns:Get_Author_ListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Authors_Filter">
+      <wsdl:input message="tns:Get_Authors_FilterSoapIn" />
+      <wsdl:output message="tns:Get_Authors_FilterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Book">
+      <wsdl:input message="tns:Insert_BookSoapIn" />
+      <wsdl:output message="tns:Insert_BookSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update_Book">
+      <wsdl:input message="tns:Update_BookSoapIn" />
+      <wsdl:output message="tns:Update_BookSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete_Book">
+      <wsdl:input message="tns:Delete_BookSoapIn" />
+      <wsdl:output message="tns:Delete_BookSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Book">
+      <wsdl:input message="tns:Get_BookSoapIn" />
+      <wsdl:output message="tns:Get_BookSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Book_List">
+      <wsdl:input message="tns:Get_Book_ListSoapIn" />
+      <wsdl:output message="tns:Get_Book_ListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Book_Filter">
+      <wsdl:input message="tns:Get_Book_FilterSoapIn" />
+      <wsdl:output message="tns:Get_Book_FilterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Categories">
+      <wsdl:input message="tns:Insert_CategoriesSoapIn" />
+      <wsdl:output message="tns:Insert_CategoriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update_Categories">
+      <wsdl:input message="tns:Update_CategoriesSoapIn" />
+      <wsdl:output message="tns:Update_CategoriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete_Categories">
+      <wsdl:input message="tns:Delete_CategoriesSoapIn" />
+      <wsdl:output message="tns:Delete_CategoriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Categories">
+      <wsdl:input message="tns:Get_CategoriesSoapIn" />
+      <wsdl:output message="tns:Get_CategoriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_CAtegories_List">
+      <wsdl:input message="tns:Get_CAtegories_ListSoapIn" />
+      <wsdl:output message="tns:Get_CAtegories_ListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Categories_Filter">
+      <wsdl:input message="tns:Get_Categories_FilterSoapIn" />
+      <wsdl:output message="tns:Get_Categories_FilterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Comments">
+      <wsdl:input message="tns:Insert_CommentsSoapIn" />
+      <wsdl:output message="tns:Insert_CommentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update_Comments">
+      <wsdl:input message="tns:Update_CommentsSoapIn" />
+      <wsdl:output message="tns:Update_CommentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete_Comments">
+      <wsdl:input message="tns:Delete_CommentsSoapIn" />
+      <wsdl:output message="tns:Delete_CommentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Comments">
+      <wsdl:input message="tns:Get_CommentsSoapIn" />
+      <wsdl:output message="tns:Get_CommentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Comments_Filter">
+      <wsdl:input message="tns:Get_Comments_FilterSoapIn" />
+      <wsdl:output message="tns:Get_Comments_FilterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Editorials">
+      <wsdl:input message="tns:Insert_EditorialsSoapIn" />
+      <wsdl:output message="tns:Insert_EditorialsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update_Editorials">
+      <wsdl:input message="tns:Update_EditorialsSoapIn" />
+      <wsdl:output message="tns:Update_EditorialsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete_Editorials">
+      <wsdl:input message="tns:Delete_EditorialsSoapIn" />
+      <wsdl:output message="tns:Delete_EditorialsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Editorials">
+      <wsdl:input message="tns:Get_EditorialsSoapIn" />
+      <wsdl:output message="tns:Get_EditorialsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Editorials_List">
+      <wsdl:input message="tns:Get_Editorials_ListSoapIn" />
+      <wsdl:output message="tns:Get_Editorials_ListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Editorials_Filter">
+      <wsdl:input message="tns:Get_Editorials_FilterSoapIn" />
+      <wsdl:output message="tns:Get_Editorials_FilterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insert_User">
+      <wsdl:input message="tns:Insert_UserSoapIn" />
+      <wsdl:output message="tns:Insert_UserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Update_User">
+      <wsdl:input message="tns:Update_UserSoapIn" />
+      <wsdl:output message="tns:Update_UserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Delete_User">
+      <wsdl:input message="tns:Delete_UserSoapIn" />
+      <wsdl:output message="tns:Delete_UserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Users">
+      <wsdl:input message="tns:Get_UsersSoapIn" />
+      <wsdl:output message="tns:Get_UsersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_Users_List">
+      <wsdl:input message="tns:Get_Users_ListSoapIn" />
+      <wsdl:output message="tns:Get_Users_ListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_User_Filter">
+      <wsdl:input message="tns:Get_User_FilterSoapIn" />
+      <wsdl:output message="tns:Get_User_FilterSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceBookSoap" type="tns:ServiceBookSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Insert_Author">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Insert_Author" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update_Author">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Update_Author" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete_Author">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Delete_Author" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Author">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_Author" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Author_List">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_Author_List" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Authors_Filter">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_Authors_Filter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Book">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Insert_Book" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update_Book">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Update_Book" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete_Book">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Delete_Book" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Book">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_Book" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Book_List">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_Book_List" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Book_Filter">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_Book_Filter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Categories">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Insert_Categories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update_Categories">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Update_Categories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete_Categories">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Delete_Categories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Categories">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_Categories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_CAtegories_List">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_CAtegories_List" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Categories_Filter">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_Categories_Filter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Comments">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Insert_Comments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update_Comments">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Update_Comments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete_Comments">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Delete_Comments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Comments">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_Comments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Comments_Filter">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_Comments_Filter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Editorials">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Insert_Editorials" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update_Editorials">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Update_Editorials" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete_Editorials">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Delete_Editorials" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Editorials">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_Editorials" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Editorials_List">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_Editorials_List" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Editorials_Filter">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_Editorials_Filter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_User">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Insert_User" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update_User">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Update_User" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete_User">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Delete_User" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Users">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_Users" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Users_List">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_Users_List" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_User_Filter">
+      <soap:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_User_Filter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceBookSoap12" type="tns:ServiceBookSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Insert_Author">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Insert_Author" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update_Author">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Update_Author" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete_Author">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Delete_Author" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Author">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_Author" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Author_List">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_Author_List" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Authors_Filter">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_Authors_Filter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Book">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Insert_Book" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update_Book">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Update_Book" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete_Book">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Delete_Book" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Book">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_Book" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Book_List">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_Book_List" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Book_Filter">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_Book_Filter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Categories">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Insert_Categories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update_Categories">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Update_Categories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete_Categories">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Delete_Categories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Categories">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_Categories" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_CAtegories_List">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_CAtegories_List" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Categories_Filter">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_Categories_Filter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Comments">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Insert_Comments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update_Comments">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Update_Comments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete_Comments">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Delete_Comments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Comments">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_Comments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Comments_Filter">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_Comments_Filter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Editorials">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Insert_Editorials" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update_Editorials">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Update_Editorials" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete_Editorials">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Delete_Editorials" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Editorials">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_Editorials" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Editorials_List">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_Editorials_List" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Editorials_Filter">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_Editorials_Filter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_User">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Insert_User" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Update_User">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Update_User" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Delete_User">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Delete_User" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Users">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_Users" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_Users_List">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_Users_List" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_User_Filter">
+      <soap12:operation soapAction="http://nicolas_bonilla_finanzauto.net/Get_User_Filter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceBook">
+    <wsdl:port name="ServiceBookSoap" binding="tns:ServiceBookSoap">
+      <soap:address location="https://localhost:44328/Service/ServiceBook.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceBookSoap12" binding="tns:ServiceBookSoap12">
+      <soap12:address location="https://localhost:44328/Service/ServiceBook.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

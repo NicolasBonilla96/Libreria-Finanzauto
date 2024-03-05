@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="https://localhost:44328/Service/ServiceBook.asmx?wsdl" docRef="https://localhost:44328/Service/ServiceBook.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="https://localhost:44328/Service/ServiceBook.asmx" xmlns:q1="http://nicolas_bonilla_finanzauto.net/" binding="q1:ServiceBookSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="https://localhost:44328/Service/ServiceBook.asmx" xmlns:q2="http://nicolas_bonilla_finanzauto.net/" binding="q2:ServiceBookSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>
